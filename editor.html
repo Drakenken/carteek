@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Editor - Carteek</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Card Editor</h1>
+    <button onclick="saveCard()">Save</button>
+  </header>
+  <main>
+    <section class="editor">
+      <input type="text" id="fullName" placeholder="Full Name" />
+      <input type="text" id="jobTitle" placeholder="Job Title" />
+      <input type="text" id="company" placeholder="Company" />
+      <textarea id="bio" placeholder="Short Bio"></textarea>
+    </section>
+    <section class="preview" id="cardPreview">
+      <h2 id="previewName">John Doe</h2>
+      <p id="previewJob">Frontend Developer</p>
+      <p id="previewCompany">Carteek Inc.</p>
+      <p id="previewBio">Building the future, one tap at a time.</p>
+    </section>
+  </main>
+  <script type="module" src="js/editor.js"></script>
+</body>
+</html>
