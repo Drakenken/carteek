@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6XasAWG8xn7ZAZa05NVwibUV5E4nSxGA",
@@ -36,6 +36,8 @@ async function loadUser(username) {
       document.getElementById("cardTitle").textContent = data.title;
       document.getElementById("cardCompany").textContent = data.company;
       document.getElementById("cardBio").textContent = data.bio;
+
+      await updateDoc(cardRef, { views: increment(1) });
     } else {
       document.getElementById("cardName").textContent = "User card not found.";
     }

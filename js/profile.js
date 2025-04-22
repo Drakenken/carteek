@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6XasAWG8xn7ZAZa05NVwibUV5E4nSxGA",
@@ -13,27 +13,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Parse UID or username from query string (?id=xxxxx)
-const urlParams = new URLSearchParams(window.location.search);
-const userId = urlParams.get("id");
+const params = new URLSearchParams(window.location.search);
+const uid = params.get("id");
 
-if (!userId) {
-  document.getElementById("cardName").textContent = "Profile not found.";
+if (!uid) {
+  document.getElementById("cardName").textContent = "User not found.";
 } else {
-  loadProfile(userId);
+  load(uid);
 }
 
-async function loadProfile(id) {
-  const docRef = doc(db, "cards", id);
-  const docSnap = await getDoc(docRef);
-
-  if (docSnap.exists()) {
-    const data = docSnap.data();
+async function load(id) {
+  const ref = doc(db, "cards", id);
+  const snap = await getDoc(ref);
+  if (snap.exists()) {
+    const data = snap.data();
     document.getElementById("cardName").textContent = data.name;
     document.getElementById("cardTitle").textContent = data.title;
     document.getElementById("cardCompany").textContent = data.company;
     document.getElementById("cardBio").textContent = data.bio;
+
+    await updateDoc(ref, { views: increment(1) });
   } else {
-    document.getElementById("cardName").textContent = "Profile not found.";
+    document.getElementById("cardName").textContent = "Card not found.";
   }
 }
