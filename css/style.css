@@ -1,36 +1,78 @@
-:root {
-  --primary: #0044ff;
-  --accent: #00c8ff;
-  --bg: #ffffff;
-  --text: #111111;
-}
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f6f8fb;
+  color: #1d1d1f;
 }
-
-header {
+.site-header {
+  background-color: #121212;
+  color: white;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+.site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 2em;
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
-
-.hero {
-  background: linear-gradient(45deg, var(--primary), var(--accent));
-  color: white;
-  text-align: center;
-  padding: 5em 2em;
-}
-
-.cta {
-  padding: 1em 2em;
-  background: white;
-  color: var(--primary);
-  border-radius: 50px;
-  text-decoration: none;
+.site-header .logo {
+  font-size: 1.5rem;
   font-weight: bold;
+}
+.site-header nav a,
+.site-header nav button {
+  color: white;
+  background: none;
+  border: none;
+  margin-left: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.site-header nav a:hover,
+.site-header nav button:hover {
+  text-decoration: underline;
+}
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+section.preview,
+section.editor {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+input, textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background-color: #007AFF;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #005FCC;
+}
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
