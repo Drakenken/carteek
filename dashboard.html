@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carteek Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Carteek</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Dashboard</h1>
+  
+<header>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="manage.html">My Info</a>
+    <a href="editor.html">Edit</a>
+    <a href="share.html">Share</a>
     <button onclick="logout()">Logout</button>
-  </header>
+  </nav>
+</header>
+
   <main>
-    <h2>Welcome, <span id="user-email"></span></h2>
-    <p>This is your personal dashboard. More features coming soon.</p>
+    <h1>Welcome to Your Dashboard</h1>
+    <ul>
+      <li><a href="manage.html">👤 View My Info</a></li>
+      <li><a href="editor.html">✏️ Edit My Card</a></li>
+      <li><a href="share.html">🔗 Share & QR Code</a></li>
+    </ul>
   </main>
-  <script type="module" src="js/dashboard.js"></script>
+  <script type="module" src="js/protect.js"></script>
 </body>
 </html>
