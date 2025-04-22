@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Your Card - Carteek</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Your Carteek Card</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+  <main>
+    <section id="card" class="preview">
+      <h2 id="previewName">Loading...</h2>
+      <p id="previewJob"></p>
+      <p id="previewCompany"></p>
+      <p id="previewBio"></p>
+    </section>
+    <div class="actions">
+      <button onclick="window.location.href='editor.html'">Edit Info</button>
+      <button onclick="copyLink()">Copy Public Link</button>
+    </div>
+  </main>
+  <script type="module" src="js/manage.js"></script>
+</body>
+</html>
