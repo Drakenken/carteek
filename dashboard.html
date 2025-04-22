@@ -1,35 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard - Carteek</title>
+  <title>Dashboard - Carteel</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <script type="module" src="js/protect.js"></script>
-  
-<header class="site-header">
-  <div class="container">
-    <div class="logo">Carteek</div>
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="manage.html">My Info</a>
-      <a href="editor.html">Edit</a>
-      <a href="share.html">Share</a>
-      <button onclick="logout()">Logout</button>
-    </nav>
-  </div>
-</header>
-
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Carteel</div>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="manage.html">My Info</a>
+        <a href="editor.html">Edit</a>
+        <a href="share.html">Share</a>
+        <button onclick="logout()">Logout</button>
+      </nav>
+    </div>
+  </header>
   <main>
     <h1>Welcome to Your Dashboard</h1>
     <section class="preview">
-      <p>Access everything here:</p>
       <div class="actions">
-        <button onclick="location.href='manage.html'">My Info</button>
-        <button onclick="location.href='editor.html'">Edit My Card</button>
-        <button onclick="location.href='share.html'">Share Card</button>
+        <button onclick="window.location.href='manage.html'">My Info</button>
+        <button onclick="window.location.href='editor.html'">Edit My Card</button>
+        <button onclick="window.location.href='share.html'">Share Card</button>
+        <button onclick="window.location.href='editor.html'">+ Create New Card</button>
       </div>
     </section>
   </main>

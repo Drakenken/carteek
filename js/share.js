@@ -1,3 +1,4 @@
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -16,7 +17,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-let username = "";
 let publicLink = "";
 
 onAuthStateChanged(auth, async user => {
@@ -25,7 +25,7 @@ onAuthStateChanged(auth, async user => {
   const cardSnap = await getDoc(doc(db, "cards", user.uid));
   if (cardSnap.exists()) {
     const data = cardSnap.data();
-    username = data.username;
+    const username = data.username;
     publicLink = `https://carteek.vercel.app/p/username.html?u=${username}`;
     document.getElementById("publicLink").value = publicLink;
     QRCode.toCanvas(document.getElementById("qrCanvas"), publicLink, { width: 200 });
@@ -45,7 +45,7 @@ window.downloadQR = () => {
 };
 
 window.shareWhatsApp = () => {
-  window.open(`https://wa.me/?text=Check%20out%20my%20digital%20card:%20${encodeURIComponent(publicLink)}`);
+  window.open(`https://wa.me/?text=Check%20my%20Carteel%20card:%20${encodeURIComponent(publicLink)}`);
 };
 
 window.shareEmail = () => {
