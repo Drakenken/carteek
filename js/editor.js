@@ -18,11 +18,8 @@ const db = getFirestore(app);
 let userId = null;
 
 onAuthStateChanged(auth, user => {
-  if (user) {
-    userId = user.uid;
-  } else {
-    window.location.href = "auth.html";
-  }
+  if (user) userId = user.uid;
+  else window.location.href = "auth.html";
 });
 
 function updatePreview() {
@@ -38,12 +35,19 @@ function updatePreview() {
 
 window.saveCard = async function() {
   if (!userId) return;
-  const cardData = {
-    name: document.getElementById("fullName").value,
-    title: document.getElementById("jobTitle").value,
-    company: document.getElementById("company").value,
-    bio: document.getElementById("bio").value,
-  };
+
+  const name = document.getElementById("fullName").value;
+  const title = document.getElementById("jobTitle").value;
+  const company = document.getElementById("company").value;
+  const bio = document.getElementById("bio").value;
+  const username = document.getElementById("username").value.toLowerCase().replace(/[^a-z0-9\-]/g, "");
+
+  const cardData = { name, title, company, bio, username };
+
   await setDoc(doc(db, "cards", userId), cardData);
+  if (username) {
+    await setDoc(doc(db, "usernames", username), { uid: userId });
+  }
+
   alert("Card saved!");
 };
