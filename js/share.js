@@ -25,10 +25,12 @@ onAuthStateChanged(auth, async user => {
   const cardSnap = await getDoc(doc(db, "cards", user.uid));
   if (cardSnap.exists()) {
     const data = cardSnap.data();
-    const username = data.username;
-    publicLink = `https://carteek.vercel.app/p/username.html?u=${username}`;
+    const username = data.username || user.uid;
+    publicLink = `https://carteek.vercel.app/profile.html?id=${user.uid}`;
     document.getElementById("publicLink").value = publicLink;
     QRCode.toCanvas(document.getElementById("qrCanvas"), publicLink, { width: 200 });
+  } else {
+    document.getElementById("publicLink").value = "No card found for this account.";
   }
 });
 
@@ -45,7 +47,7 @@ window.downloadQR = () => {
 };
 
 window.shareWhatsApp = () => {
-  window.open(`https://wa.me/?text=Check%20my%20Carteel%20card:%20${encodeURIComponent(publicLink)}`);
+  window.open(`https://wa.me/?text=Check%20out%20my%20digital%20card:%20${encodeURIComponent(publicLink)}`);
 };
 
 window.shareEmail = () => {
