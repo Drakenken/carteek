@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share My Card - Carteek</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Share Your Card</h1>
+  </header>
+  <main>
+    <div>
+      <p>Your public link:</p>
+      <input type="text" id="publicLink" readonly />
+      <button onclick="copyLink()">Copy Link</button>
+    </div>
+    <div>
+      <p>Your QR Code:</p>
+      <canvas id="qrCanvas"></canvas>
+      <button onclick="downloadQR()">Download QR</button>
+    </div>
+    <div>
+      <p>Share:</p>
+      <button onclick="shareWhatsApp()">WhatsApp</button>
+      <button onclick="shareEmail()">Email</button>
+    </div>
+  </main>
+  <script type="module" src="js/share.js"></script>
+</body>
+</html>
