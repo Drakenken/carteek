@@ -1,28 +1,59 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manage Your Card - Carteek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Card - Carteel</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <h1>Your Carteek Card</h1>
-    <button onclick="logout()">Logout</button>
+  <script type="module" src="js/protect.js"></script>
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Carteel</div>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="editor.html">Editor</a>
+        <button onclick="logout()">Logout</button>
+      </nav>
+    </div>
   </header>
+
   <main>
-    <section id="card" class="preview">
-      <h2 id="previewName">Loading...</h2>
-      <p id="previewJob"></p>
-      <p id="previewCompany"></p>
-      <p id="previewBio"></p>
+    <h1>Your Card</h1>
+    <section class="editor">
+      <label>Name</label>
+      <input type="text" id="nameInput" />
+      <label>Job Title</label>
+      <input type="text" id="jobInput" />
+      <label>Company</label>
+      <input type="text" id="companyInput" />
+      <label>Bio</label>
+      <textarea id="bioInput" rows="3"></textarea>
+      <button onclick="saveCard()">Save</button>
     </section>
+
+    <section class="preview">
+      <h2>Public Share</h2>
+      <label>Your public link:</label>
+      <input type="text" id="publicLink" readonly />
+      <button onclick="copyLink()">Copy Link</button>
+
+      <p>Your QR Code:</p>
+      <canvas id="qrCanvas"></canvas>
+      <button onclick="downloadQR()">Download QR</button>
+
+      <p>Share:</p>
+      <button onclick="shareWhatsApp()">WhatsApp</button>
+      <button onclick="shareEmail()">Email</button>
+    </section>
+
     <div class="actions">
-      <button onclick="window.location.href='editor.html'">Edit Info</button>
-      <button onclick="copyLink()">Copy Public Link</button>
+      <button onclick="history.back()">← Back</button>
     </div>
   </main>
+
   <script type="module" src="js/manage.js"></script>
 </body>
 </html>
